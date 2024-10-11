@@ -7,6 +7,7 @@ import platform
 import string
 import time
 
+from root_functions import ROOT_DIR
 from src.core.Functions.Functions import slash, format_os
 from src.gl.Const import EMPTY, MAX_LOOP_COUNT, NONE, APOSTROPHES, BLANK, DB_LIST_REPRESENTATION_SUBSTITUTE, APP_NAME, \
     LC, WORD_CHARS, NUM
@@ -300,6 +301,7 @@ def stringed_list_to_list(value) -> []:
 
 
 def find_file(name, path):
+    _validate_path(path)
     for root, dirs, files in os.walk(path):
         if name in files:
             return os.path.join(root, name)
@@ -307,6 +309,7 @@ def find_file(name, path):
 
 
 def find_files(name, path):
+    _validate_path(path)
     paths = []
     for root, dirs, files in os.walk(path):
         if name in files:
@@ -318,15 +321,22 @@ def find_files_for_type(file_type, basedir=os.curdir):
     """
     Return all file paths matching the specified file type in the specified base directory (recursively).
     """
+    _validate_path(basedir)
     for path, dirs, files in os.walk(os.path.abspath(basedir)):
         for filename in fnmatch.filter(files, file_type):
             yield os.path.join(path, filename)
 
 
 def find_files_in_path(path):
+    _validate_path(path)
     for (root, dirs, dir_files) in os.walk(path):
         return [f"{path}{format_os('/')}{file}" for file in dir_files]
     return []
+
+
+def _validate_path(path_or_dir):
+    if not path_or_dir.startswith(ROOT_DIR):
+        raise ValueError('Directory name is not within the root directory.')
 
 
 def strip_crlf(line) -> str:
