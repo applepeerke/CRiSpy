@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "pip" # or "bundler", "composer", etc., depending on your package manager
+    directory: "/"           # The root directory or wherever your dependencies are located
+    schedule:
+      interval: "weekly"     # or "daily", "monthly", etc.
+    ignore:
+      - dependency-name: "*"
+        paths:
+          - "tests/**"
