@@ -176,10 +176,9 @@ def normalize_dir(dir_name, create=False):
     if create:
         if not dir_name.startswith(ROOT_DIR):
             raise GeneralException('Directory name is not within the root directory.')
-        if not os.path.isdir(dir_name):
-            raise GeneralException('Directory name is not valid.')
         try:
-            os.makedirs(dir_name)
+            if not os.path.isdir(dir_name):
+                os.makedirs(dir_name)
         except NotADirectoryError:
             raise
     return dir_name if dir_name[-1] in ('/', '\\') else f'{dir_name}{slash()}'
