@@ -1,9 +1,9 @@
 version: 2
 updates:
-  - package-ecosystem: "pip" # or "bundler", "composer", etc., depending on your package manager
-    directory: "/"           # The root directory or wherever your dependencies are located
+  - package-ecosystem: "pip"
+    directory: "/"
     schedule:
-      interval: "weekly"     # or "daily", "monthly", etc.
+      interval: "weekly"
     ignore:
       - dependency-name: "*"
         paths:
