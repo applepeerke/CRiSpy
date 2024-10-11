@@ -5,4 +5,17 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      - dependency-name: "*"
+      - dependency-name: "jest"
+      - dependency-name: "cryptography"
+      - dependency-name: "django"
+      - dependency-name: "certifi"
+      - dependency-name: "urllib3"
+      - dependency-name: "jinja2"
+      - dependency-name: "jwcrypto"
+      - dependency-name: "mysql*"
+      - dependency-name: "requests"
+      - dependency-name: "sqlparse"
+      - dependency-name: "com.h2database:h2"
+      - dependency-name: "djangorestframework"
+      - dependency-name: "idna"
+      - dependency-name: "sentry-sdk"
