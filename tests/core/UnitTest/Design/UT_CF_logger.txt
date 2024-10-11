@@ -1,0 +1,11 @@
+Pattern "l o g g e r" : Find               - logger.info("LAMBDA_REQ_IN: {} for {} with input: {} \n", realClassName, userAuditData, input);
+Pattern "l o g g e r" : Find               - logger.info("LAMBDA_RES_OUT: {} response sent for {} to API gateway: {}", realClassName, userAuditData, jsonResponse);
+Pattern "l o g g e r" : Find               - logger.error('my text {} my second text'.format( password )')
+Pattern "l o g g e r" : Find               - logger.info('my text {}'.format(password))
+Pattern "l o g g e r" : Ignore             - LOGGER.error("Nonce not found for user "+name+" and emailaddress "+emailAddress);
+Pattern "l o g g e r" : Find               - logger.info('my text' + password)
+Pattern "l o g g e r" : Find               - logger('my text' + password)
+Pattern "l o g g e r" : Find               - logger.info(f'my text {password}')
+Pattern "l o g g e r" : Find               - logger.error(f'my text {password} my second text')
+Pattern "l o g g e r" : Do NOT find debug  - logger.debug('my text' + password)
+Pattern "l o g g e r" : Do NOT find method - .getLogger('my text' + password)

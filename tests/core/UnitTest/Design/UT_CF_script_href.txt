@@ -1,0 +1,8 @@
+Pattern "h r e f" : Do find     doublequote - <li><a href="http://example.com">Example</a></li>
+Pattern "h r e f" : Do find     singleqoute - <li><a href='http://example.com'>Example</a></li>
+Pattern "h r e f" : Do find                 - <p class="Copyright"><small>Copyright \xef\xbf\xbd 2018-2021 <a href="http://www.cxsoftware.com">CX Software BV</a>. All Rights Reserved.</small></p>
+Pattern "h r e f" : Do NOT find unclosed    - <li><a href="http://example.com>Example</a></li>
+Pattern "h r e f" : Do NOT find unopened    - <li><a href=http://example.com">Example</a></li>
+Pattern "h r e f" : Do NOT find noquotes    - <li><a href=http://example.com>Example</a></li>
+Pattern "h r e f" : Do NOT find var         - <li><a href=http://example.com${param.url}>Example</a></li>
+Pattern "h r e f" : Do find     no var      - <li><a href=http://example.com.param.url>Example</a></li>

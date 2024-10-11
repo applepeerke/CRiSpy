@@ -1,0 +1,69 @@
+----------------------------------------------------------------------------------------
+CRiSp - Code Review involving Search Patterns
+----------------------------------------------------------------------------------------
+Author : Peter Heijligers
+Version: 5.0.0
+Python : >= 3.10
+----------------------------------------------------------------------------------------
+CLI usage:
+1. cd to the CRiSp directory.
+2. python crispcli.py -i "myCodebasePath"
+
+Output
+------
+All output is directed to CRiSp subfolder Output/Result (by default).
+The potential findings are listed in Findings.csv, or in a file called "<project>_Vnnn.csv".
+
+In supported frameworks (e.g. Python Django/FastAPI/Marshmallow or Java Spring) a subfolder DataFlow is created.
+This contains the endpoints with their vulnerabilities in
+    o  "Endpoints_<framework>.csv" and
+    o  "Model - field validations.csv"
+
+Also a logfile is created.
+Optionally a version_vulnerabilities.csv can be created.
+
+
+Input parameters
+----------------
+To see the CLI input parameters, run "python crispcli.py -h".
+
+-i = input directory
+Source base directory. Searched recursively.
+
+-l = output directory
+Output directory for database and log files.
+
+-p = pattern
+Search for one (1) custom pattern instead of patterns in SearchPatterns.csv.
+
+Special parameters
+------------------
+
+-a = all mode
+Specify -a to include all file types and path names. By default some file types (like .png) and path names
+(e.g. containing "test") are excluded. This filtering is defined in Filters.csv.
+Excluded/included file types are listed in the log.
+
+-b = code base type
+Specify -b to skip patterns that are not logical to search for in the code base.
+E.g. concurrency patterns are not useful in a single thread (standalone) application.
+Values: Any, Web app, API, Middleware, Frontend, Backend, Standalone.
+
+-c = company
+Also search for "Company" patterns in SearchPatterns.csv.
+
+-q = quick scan
+Complex regex patterns in SearchPatterns.csv are skipped.
+(However, sa for now no complex patterns are present any more ;-)
+
+-s = sync vulnerable package versions.
+A Version_vulnerabilities.csv is created when there are vulnerable packages in the configuration of a repository.
+CVE vulnerabilities are registered at NIST. These are synchronised when this parameter is used.
+
+-t = title
+The title to use in the log output name and the output subdirectory.
+
+-v = verbose
+Verbose logging.
+At this moment this has no effect.
+----------------------------------------------------------------------------------------

@@ -1,0 +1,5 @@
+Pattern "e m a i l" : Find                 - this is a mail to noreply@example.com
+Pattern "e m a i l" : Find                 - this is a mail to n@example.com
+Pattern "e m a i l" : Do NOT find          - this ia a mail to noreply:@example.com
+Pattern "e m a i l" : Do NOT find          - this ia a mail to noreply(@example.com
+Pattern "e m a i l" : Do NOT find     	   - public ResponseEntity<SearchResultsPage<HboRequestDto>> search(@RequestBody SearchRequestDto searchRequestDto){

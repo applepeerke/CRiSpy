@@ -1,0 +1,4 @@
+Subject;Decorator;Company
+Authorization;@has_scope;KPN
+Authorization;@check_authorization_with_scope;KPN
+Authentication;@session_required;KPN

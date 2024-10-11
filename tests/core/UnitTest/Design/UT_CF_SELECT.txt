@@ -1,0 +1,8 @@
+Pattern "S E L E C T" : Find         -  @Query(value = "SELECT DISTINCT a.klant_naam FROM amtek a where "+whereClauseUser+" order by 1",nativeQuery = true)
+Pattern "S E L E C T" : Find         -  ("SELECT * FROM a WHERE a.b = " + input)
+Pattern "S E L E C T" : Find         -  ( "SELECT * FROM a WHERE a.b = " + input + "AND a.c = ' '" )
+Pattern "S E L E C T" : Do NOT find  -  ("SELECT * FROM a WHERE a.b = ' '")
+Pattern "S E L E C T" : Do NOT find  -  "SELECT * FROM a WHERE a.b = ' '"
+Pattern "S E L E C T" : Do NOT find  -  "SELECT * FROM a WHERE b = 1"
+Pattern "S E L E C T" : Do NOT find  -  'SELECT a, b, fieldc FROM file(myf) WHERE myf.b = 1'
+Pattern "S E L E C T" : Do NOT find  -  "SELECT a, b, fieldc FROM file WHERE fieldc = 'hallo'"

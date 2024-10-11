@@ -1,0 +1,9 @@
+Pattern "t r a c e" : Find           - trace(e)
+Pattern "t r a c e" : Find           - trace(e.message)
+Pattern "t r a c e" : Find           - trace('my text' + bank_acc + 'my second text')
+Pattern "t r a c e" : Find           - trace(f'my text {BankRek}')
+Pattern "t r a c e" : Find           - trace('my text {} my second text'.format( BankRek )')
+Pattern "t r a c e" : Find           - reportTracing(s"Received the Payload : $payload")
+Pattern "t r a c e" : Do NOT find    - trace( 'my text' )
+Pattern "t r a c e" : Do NOT find    - trace('secondtext')
+

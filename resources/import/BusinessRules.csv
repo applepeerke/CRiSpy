@@ -1,0 +1,54 @@
+PatternName;FileName;Ext;Seq;SearchValue;RuleOperator;Status;Description
+algNone;;;;none;ContainsNot;FP;Ignore the finding when the line does NOT contain the specified search value.
+cert;;;;certain;Contains;FP;Ignore the finding when the line contains the specified search value.
+debug;;;;False;Contains;FP;Ignore the finding when the line contains the specified search value.
+debug;;;;logger.debug;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+debug;;;;log.debug;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+doubleslash;;;;;;FP;Do not process this pattern.
+dump;;;;json.dumps(;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+email;;jsp;;<%@;Contains;FP;Ignore the finding when the line contains the specified search value.
+email;;java;;(@param;Contains;FP;Ignore the finding when the line contains the specified search value.
+encode;;;;json;Contains;FP;Ignore the finding when the line contains the specified search value.
+encode;;;;urlencode;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+execute;;;;task.execute(;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+exe;;jsp;;.exec;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+exec;;js;;;;FP;Ignore the finding when the pattern occurs in javascript.
+hardcoded_key;;xslt;;;;FP;Ignore the finding when the pattern occurs in this file type.
+hardcoded_key;;;;publickeytoken;Contains;FP;Ignore the finding when the line contains the specified search value.
+hash;;;;hashmap;Contains;FP;Ignore the finding when the line contains the specified search value.
+hash;;;;hashset;Contains;FP;Ignore the finding when the line contains the specified search value.
+hash;;;;hashtable;Contains;FP;Ignore the finding when the line contains the specified search value.
+hash;;;;hashcode(;Contains;FP;Ignore the finding when the line contains the specified search value.
+hash;;;;_hash;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+http;;jsp;;taglib;Contains;FP;Ignore the finding when the line contains the specified search value.
+http;;jspf;;taglib;Contains;FP;Ignore the finding when the line contains the specified search value.
+http;;tag;;taglib;Contains;FP;Ignore the finding when the line contains the specified search value.
+http;;plist;;;;FP;Ignore the finding when the pattern occurs in this file type.
+lock;;;;block;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+lock;;;;clock;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+otp;;;;notp;Contains;FP;Ignore the finding when the line contains the specified search value.
+parse;;java;;datetimeformatter;Contains;FP;Ignore the finding when the line contains the specified search value.
+random;;;;securerandom;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+raw;;;;draw;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+reDoS;;js;;;;Verify_FP;Assume FP when the pattern occurs in javascript.
+root;;html;;;;FP;Ignore the finding when the pattern occurs in this file type.
+salt;;;;universaltime;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+script;;js,jsp,jspf,vue;;;;FP;Ignore the finding when the pattern occurs in these file types. Here scripts should be present.
+script;;;;scription;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+script;;;;src=;Contains;FP;"Ignore the finding when the line contains the specified SearchValue. It is handled by the ""src="" pattern."
+temp;;;;template;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+todo;;;;todocument;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+token;web;config;;publickeytoken;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+token;;;;securitytokenexception;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+token;;;;canceltoken;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+secure;;java;;@secured;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+security;;;;securitytokenexception;;FP;Ignore the finding when the pattern is a substring of the specified SearchValue.
+external_parties;;py;;#;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+external_parties;;java;;/;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+external_parties;;cs;;/;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+http;;py;;#;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+http;;java;;/;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+http;;cs;;/;StartsWith;FP;Ignore the finding if the pattern is found in a comment.
+email;;;;@;StartsWith;FP;Ignore the finding if the pattern starts with '@'.
+*;;js;;require(;Contains;FP;Ignore the finding when the line contains the specified search value.
+*;;cs;;using;StartsWith;FP;Ignore the finding if it is just an import.

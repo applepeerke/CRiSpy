@@ -1,0 +1,3 @@
+Pattern "l o g" :       Find               - log.error(f'my text {password} my second text')
+Pattern "l o g" :       Find               - log.info("GetAccessDetailsClientImpl call for :{}", address);
+Pattern "l o g" :       Do NOT find debug  - log.debug('my text' + password)

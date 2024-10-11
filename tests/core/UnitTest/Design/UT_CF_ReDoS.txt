@@ -1,0 +1,13 @@
+ 1. Pattern for reDoS : Find repeatable "+"   		= (\d+)+
+ 2. Pattern for reDoS : Find repeatable "*"  		= (\d*)*
+ 3. Pattern for reDoS : Find repeatable mix-1 		= ([A-Z]+)*
+ 4. Pattern for reDoS : Find repeatable mix-2 		= ([A-Z]*)+
+ 5. Pattern for reDoS : Find repeating alternating "|" 	= (\d|\s)+
+ 6. Pattern for reDoS : Find repeating alternating "|" 	= ([A-Z]|[a-z])*
+ 7. Pattern for reDoS : Find CI example self.regex_allowplus = re.compile(r'^\w+([-_.+]\w+)*-?@\w+([-.]\w+)*\.\w+([-.]\w+)*$',self.flags)
+ 8. Pattern for reDoS : Find complex 			= r"(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+ 9. Pattern for reDoS : Find with hooks			= ([A-Z]|([a-z]))*
+
+ 1. Pattern for reDoS : Do NOT find_file simple "+" 		= (\d)+
+ 2. Pattern for reDoS : Do NOT find_file simple "*" 		= (\d)*
+ 3. Pattern for reDoS : Do NOT find_file complex 		= r"(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)?|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])?\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)?[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])?)\])"

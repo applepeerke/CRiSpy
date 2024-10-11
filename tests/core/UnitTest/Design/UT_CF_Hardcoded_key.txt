@@ -1,0 +1,20 @@
+Pattern for hardcoded key : Find                                          public const string MapsApiKey = "AIzaSyBCKZScIzAilKZYMRIVaZjbNZUk0vRzlyM";
+Pattern for hardcoded key : DO Not find my secret key (not apostroph)            = myVeryLongFunctionNameAbracadabra1Abracadabra2gb
+Pattern for hardcoded key : Find                                          SECRET_KEY = 166!zmpq!+z!7eix3+@pvp8@(ic4rctxm5codsb@dl+n=qim!t
+Pattern for hardcoded key : Do NOT find my secret key (long complex)      = 7p!r0*!fg6%$e7(fg99!*r+dc&i++oda2n%=7en7*0p52h!q@p
+Pattern for hardcoded key : Find my secret key (long)                     = '@br@c@d^br@@br@c@d^br@@br@c@d^br@@br@c@d^br@'
+Pattern for hardcoded key : Find my secret key (long)                    == '@br@c@d^br@@br@c@d^br@@br@c@d^br@@br@c@d^br@'
+Pattern for hardcoded key : Find my secret key (long)                      ='@br@c@d^br@@br@c@d^br@@br@c@d^br@@br@c@d^br@'
+Pattern for hardcoded key : Find my secret key (long)                     : "@br@c@d^br@@br@c@d^br@@br@c@d^br@@br@c@d^br@"
+Pattern for hardcoded key : Find my secret key (short complex)            = '@br@c@d^br@1@br@c@d^br@2abra'
+
+Pattern for hardcoded key : Find                                          =    zip_code = serializers.RegexField(min_length=6, max_length=6, regex=r_^[0-9]{4}[A-Za-z]{2}$_)
+Pattern for hardcoded key : Do NOT find_file my specials like                  = '============+=======+======================='
+Pattern for hardcoded key : Do NOT find_file my secret key (short no digits)   = '@br@c@d^br@a@br@c@d^br@aa@ra'
+Pattern for hardcoded key : Do NOT find_file my secret key (short no digits)   = '@br@c@d^br@a@br@c@d^br@aa@ra'
+Pattern for hardcoded key : Do NOT find_file my secret key (short no UC)       = '@br@c@d^bra1@br@c@d^bra2abra'
+Pattern for hardcoded key : Do NOT find_file my secret key (short no LC)       = '@BR@C@D^brA1@BR@C@D^BRA2ABRA'
+Pattern for hardcoded key : Do NOT find_file my secret key (not assignment)    > @br@c@d^br@1@br@c@d^br@2abra
+Pattern for hardcoded key : Do NOT find_file my path                           = '@br@c@d^br@@br@c@d^br@@br@c@d^br\abracad.Abr'
+Pattern for hardcoded key : Do NOT find_file my path                           = '@br@c@d^br@@br@c@d^br@@br@c@d^br/abracad.Abr'
+Pattern for hardcoded key : Do NOT find_file my path                           = '@br@c@d^br@@br@c@d^br@@br@c@d^brabracad.Abr'

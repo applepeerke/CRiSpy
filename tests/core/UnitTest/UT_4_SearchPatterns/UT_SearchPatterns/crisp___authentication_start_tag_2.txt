@@ -1,0 +1,3 @@
+Pattern;Categoryname;Categorytype;Status;Filedir;Filename;Lineno;Pos;Sourceline;Patternname;Purpose;Classification;Owasp;Severity;Fileext;Formattedline
+<authentication;;;investigate;;General.config;1;0;"<authentication mode=""None"" />";authentication_start_tag;;;;;.config;"/General.config:1:<authentication mode=""None"" />"
+<authentication;;;investigate;;General.config;2;0;<authentication mode='None' />;authentication_start_tag;;;;;.config;/General.config:2:<authentication mode='None' />

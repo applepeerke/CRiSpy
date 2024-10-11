@@ -1,0 +1,13 @@
+FileExt;Language;SecurityHeaders
+.py;Python;
+.java;Java;
+.js;JavaScript;False
+.cs;CSharp;
+.rb;Ruby;
+.vue;Vue;
+.ts;JavaScript;False
+.tf;Terraform;
+.dart;Dart;
+.swift;Swift;
+.html;HTML;False
+.scala;Scala;

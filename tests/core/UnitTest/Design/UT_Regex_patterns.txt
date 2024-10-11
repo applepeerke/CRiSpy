@@ -1,0 +1,20 @@
+Pattern for email: Find hi.fellow@hotmail.com
+
+Pattern for sha: Find sha1
+Pattern for sha: Find sha123
+Pattern for sha: Do NOT find_file sha
+Pattern for sha: Do NOT find_file SeHA
+
+Pattern for http: Find find_file http://whatsup.com
+Pattern for http: Do NOT find_file http://whatsup.soap.com
+Pattern for http: Do NOT find_file http://whatsup.xmlns
+Pattern for http: Do NOT find_file http://www.w3.org
+
+Pattern for ma: Find ma1
+Pattern for ma: Do NOT find_file MyAunt
+
+Pattern for doubleslash: Find find_file // my commment
+Pattern for doubleslash: Do NOT find_file / / my commment
+
+Pattern for kpn ma: Find ma-1honiehouder
+Pattern for kpn ma: Do NOT find_file ma-honiehouder

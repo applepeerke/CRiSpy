@@ -1,0 +1,16 @@
+Pattern "a u t o e s c a p e" : Find        - options={"autoescape": False}
+Pattern "a u t o e s c a p e" : Find        - autoescape=False
+Pattern "a u t o e s c a p e" : Find        - autoescape="False"
+Pattern "a u t o e s c a p e" : Find        - autoescape = "FALSE"
+Pattern "a u t o e s c a p e" : Find        - autoescape = False
+Pattern "a u t o e s c a p e" : Find        - autoescape = false
+Pattern "a u t o e s c a p e" : Find        - AutoEscape = "false"
+Pattern "a u t o e s c a p e" : Find        - Autoescape.False
+Pattern "a u t o e s c a p e" : Do NOT find - options={"autoescape": True}
+Pattern "a u t o e s c a p e" : Do NOT find - autoescape=True
+Pattern "a u t o e s c a p e" : Do NOT find - autoescape="True"
+Pattern "a u t o e s c a p e" : Do NOT find - autoescape = "TRUE"
+Pattern "a u t o e s c a p e" : Do NOT find - autoescape = True
+Pattern "a u t o e s c a p e" : Do NOT find - autoescape = true
+Pattern "a u t o e s c a p e" : Do NOT find - AutoEscape = "true"
+Pattern "a u t o e s c a p e" : Do NOT find - Autoescape.True

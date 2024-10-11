@@ -1,0 +1,3 @@
+Pattern "d u m p" : Find                - json.dumps(request.body)
+Pattern "d u m p" : Do NOT find_file    - Logger("Dit is een tekst" + "dump" + "voor de test")
+Pattern "d u m p" : Do NOT find_file    - Logger("Dit is een tekst" + "my_dump_friend" + "voor de test")

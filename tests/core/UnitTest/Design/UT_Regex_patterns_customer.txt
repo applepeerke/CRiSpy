@@ -1,0 +1,4 @@
+Pattern for TEXT_REGEX: Find This is a normal text
+Pattern for TEXT_REGEX: Do NOT Find This is a malicious script <script>alert(1)</script>
+Pattern for TEXT_REGEX: Do NOT Find This is a normal text with a < which is not allowed
+Pattern for TEXT_REGE#: Do NOT Find This is a malicious script https://evil.com/payload - This does not work yet...

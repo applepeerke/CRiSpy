@@ -1,0 +1,5 @@
+Pattern p h o n e : Find         - phone_number = '+31 (0) 63454312'
+Pattern p h o n e : Find         - phone = "63454312"
+Pattern p h o n e : Do NOT find  - phony = "63454312"
+Pattern p h o n e : Do NOT find  - phone = 63454312
+Pattern p h o n e : Do NOT find  - phone = "63a454312"

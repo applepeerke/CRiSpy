@@ -1,0 +1,4 @@
+Id;Patternname;Filename;Sourceline;Reason_Or_Question;Recommendation;Answer;Status;Policycode;Cvss;Details;Reference;Projectid
+1;regist;EventMediaItemVersionImpl.java;// Namespace properties needed to register the node type in the JCR;2;;;TP;;;;;1
+2;external_parties;MediaServiceImpl.java;"            buildUrl = buildUrl + ""://"" + session.getContext().getWebsite().getFrontendHostname();";2;;;FP;;;;;1
+3;hash;Activator.java;"import java.util.Hashtable;";2;;;TP;;;;;1

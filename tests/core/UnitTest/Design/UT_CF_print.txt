@@ -1,0 +1,7 @@
+Pattern "p r i n t" :  Find               - print('my text {} my second text'.format( password )')
+Pattern "p r i n t" :  Find               - print(data)
+Pattern "p r i n t" :  Find               - print(request);
+Pattern "p r i n t" :  Find               - print(body)
+Pattern "p r i n t" :  Do NOT find        - eprint(body)
+
+s

@@ -1,0 +1,20 @@
+Pattern "r e s o u r c e s" : Find           - resources["*"]
+Pattern "r e s o u r c e s" : Do NOT find    - resources("*")
+Pattern "r e s o u r c e s" : Find           - resources=["*"]
+Pattern "r e s o u r c e s" : Do NOT find    - resources["arn:aws:myresource"]
+Pattern "r e s o u r c e s" : Find           - resources["*",]
+Pattern "r e s o u r c e s" : Do NOT find    - resources["arn:aws:myresource",]
+Pattern "r e s o u r c e s" : Find           - resources[
+	"*"
+]
+Pattern "r e s o u r c e s" : Do NOT find    - resources[
+	"arn:aws:myresource"
+]
+Pattern "r e s o u r c e s" : Find           - resources[
+	"*", 
+	"hallo"
+]
+Pattern "r e s o u r c e s" : Do NOT find    - resources[
+	"arn:aws:myresource",
+	"hallo"
+]

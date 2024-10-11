@@ -1,0 +1,7 @@
+Pattern for getattr : Find   getattr('name', dft=dummy)
+Pattern for getattr : Find   getattr(name='myName', o=Object)
+Pattern for getattr : Do NOT find   getattr(name='myName', o=Object, default='a')
+Pattern for getattr : Do NOT find   getattr( name, o, dft )
+Pattern for getattr : Do NOT find   getattr( name=myName, o=myObject, 'dummy' )
+Pattern for getattr : Do NOT find   getattr( 
+					name=myName, o=myObject, 'dummy' )

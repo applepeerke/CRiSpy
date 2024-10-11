@@ -1,0 +1,6 @@
+Pattern for header : Find            String headerX = "X-Forwarded-For";
+Pattern for header : Find            private static final String HEADER_AUTHORIZATION = "Authorization";
+Pattern for header : Do NOT find     HeaderParamsToSecure headerParamsToSecure = new HeaderParamsToSecure(host, referer);
+Pattern for header : Do NOT find     if(headers != null) {
+Pattern for header : Do NOT find     List<NamedValue> headers = new ArrayList<>();
+Pattern for header : Do NOT find     static final int ROW_PRODUCT_INFO_2_HEADER = 7;

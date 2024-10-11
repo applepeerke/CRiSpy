@@ -1,0 +1,3 @@
+Pattern "s r c" : Do NOT find   - <script type="text/src/javascript"></script>
+Pattern "s r c" : Find          - <script type="text/javascript" src="../../../../../{user_input}_script.js"></script>
+Pattern "s r c" : Do NOT find   - <script type="text/javascript">src</script>

@@ -1,0 +1,7 @@
+Pattern "o n l o a d" : Do NOT find   - onload=myFunction()
+Pattern "o n l o a d" : Do NOT find   - onload="myFunction"
+Pattern "o n l o a d" : Do NOT find   - onload="myFunction()"
+Pattern "o n l o a d" : Find          - onload="{user_input}"
+Pattern "o n l o a d" : Find          - onload="exe_{user_input}"
+Pattern "o n l o a d" : Find          - onload="exe_{user_input}()"
+Pattern "o n l o a d" : Find          - onload="exe_{user_input}_function()"

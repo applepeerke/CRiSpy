@@ -1,0 +1,12 @@
+START_OF_ENDPOINTS = 'paths'
+START_OF_MODELS = 'schemas'
+START_OF_ENDPOINT = 'path'
+START_OF_MODEL = 'schema'
+ALLOW = 'Allow'
+DENY = 'Deny'
+# Yaml / Json
+RESOURCES = 'Resources'
+RESOURCE = 'Resource'
+EFFECT = 'Effect'
+ACTION = 'Action'
+PRINCIPAL = 'Principal'

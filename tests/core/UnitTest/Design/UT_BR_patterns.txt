@@ -1,0 +1,35 @@
+Pattern for s c r i p t : Do NOT find /table_init.sql:249: model_description  VARCHAR(255)   NOT NULL,
+Pattern for s c r i p t : Find        this is a script to find
+Pattern for s c r i p t : Do NOT find this is a description not to find
+
+Pattern for h t t p : Find        http://heybrow.com
+Pattern for h t t p : Find    nos.notification-service.ticket-validation-url=http://tomcat-acc.reggefiber.net:8096/sso
+Pattern for h t t p : Do NOT find https://heybrow.com
+
+Pattern for e x e c u t e   : Find call malicious.execute(hallo)
+Pattern for e x e c u t e   : Do NOT find task.execute(hallo)
+
+Pattern for s a l t : Find (salt.value)
+Pattern for s a l t : Do NOT find universaltime
+
+Pattern for h a s h : Find value.hash(format)
+Pattern for h a s h : Do NOT find value.hashset
+Pattern for h a s h : Do NOT find value.hashmap
+Pattern for h a s h : Do NOT find myclass.gethashcode(value)
+Pattern for h a s h : Do NOT find Map<String, List<BASRData>> basrMap2300 = new LinkedHashMap<String, List<BASRData>>();
+
+Pattern for t e m p : Do NOT find Template_name
+Pattern for t e m p : Find Temporary_name
+
+Pattern for T O D O : Find TODO: something to do
+Pattern for T O D O : Do NOT find TODOcument "this issue"
+
+Pattern for r e q u e s t . M E T A : Find request.META.HOSTNAME
+Pattern for r e q u e s t . M E T A : Do NOT find request.META.DUMMY
+
+Pattern for e m a i l : Find        <%kpage
+Pattern for e m a i l : Do NOT find <%@page
+
+Pattern for l o c k : Find        lock
+Pattern for l o c k : Do NOT find block or clock
+Pattern for l o c k : Do NOT find <fo:block font-size="18pt" line-height="21pt"

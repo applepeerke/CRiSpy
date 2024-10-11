@@ -1,0 +1,4 @@
+Pattern "i n p u t" : Do Find     JSP - <input type="submit" value="${param.xss}" class="button is-primary" />
+Pattern "i n p u t" : Do Find     PSP - <input type="submit" value="<?= $_GET['xss'] ?>" class="button is-primary" />
+Pattern "i n p u t" : Do NOT find     - <input type="submit" value="Primary Submit" class="button is-primary" />
+Pattern "i n p u t" : Do NOT find     - <input type="submit" class="button is-primary" />

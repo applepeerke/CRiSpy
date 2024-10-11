@@ -1,0 +1,3 @@
+Pattern;Categoryname;Categorytype;Status;Filedir;Filename;Lineno;Pos;Sourceline;Patternname;Purpose;Classification;Owasp;Severity;Fileext;Formattedline
+pickle;;;investigate;;Omit_BRs.py;3;7;"import pickle  /* Should be found, when ""pickle"" is searched with Apply_BRs=False.";pickle;;;;;.py;"/Omit_BRs.py:3:import pickle  /* Should be found, when ""pickle"" is searched with Apply_BRs=False."
+pickle;;;investigate;;Omit_BRs.py;4;7;import picklesDelight ;pickle;;;;;.py;/Omit_BRs.py:4:import picklesDelight 

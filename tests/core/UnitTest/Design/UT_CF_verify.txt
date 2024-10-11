@@ -1,0 +1,10 @@
+Pattern "v e r i f y" : Find                 - options={"verify_signature": False}
+Pattern "v e r i f y" : Find                 - verify_ssl=False
+Pattern "v e r i f y" : Find                 - VERIFYSSL = NONE
+Pattern "v e r i f y" : Find                 - VERIFYSSL = "NONE"
+Pattern "v e r i f y" : Find                 - VERIFYSSL = 'NONE'
+Pattern "v e r i f y" : Do NOT find          - verify_ssl=True
+Pattern "v e r i f y" : Do NOT find          - VerifySsl = TRUE
+Pattern "v e r i f y" : Do NOT find          - Verify = YES
+Pattern "v e r i f y" : Do NOT find          - verify_ssl="True"
+Pattern "v e r i f y" : Do NOT find          - verify_ssl = 'True'
