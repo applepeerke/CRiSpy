@@ -292,11 +292,11 @@ class CRiSpy(object):
             return Result(ResultCode.Error, e.message)
 
     def _validate_input(self) -> Result:
+        if not self._input_dir.startswith(ROOT_DIR):
+            return Result(ResultCode.Error, 'Directory name is not within the root directory.')
         # Input dir must exist and not too short
         if not os.path.isdir(self._input_dir):
             return Result(ResultCode.Error, f"{get_label(CF_INPUT_DIR)} '{self._input_dir}' does not exist.")
-        if len(self._input_dir) < 2:
-            return Result(ResultCode.Error, f"{get_label(CF_INPUT_DIR)} '{self._input_dir}' is too short.")
 
         CM.config_dict[CF_INPUT_DIR] = self._input_dir
 
