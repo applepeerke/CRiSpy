@@ -12,7 +12,7 @@ certifi==2022.12.7
     #   elastic-transport
     #   requests
     #   sentry-sdk
-cffi==1.15.1
+cffi==1.17.1
     # via cryptography
 charset-normalizer==3.0.1
     # via requests
