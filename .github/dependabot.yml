@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/tests"
+    directory: "/tests/core/UnitTest/Design/CVE"
     schedule:
       interval: "monthly"
     ignore:
