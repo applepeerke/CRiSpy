@@ -1,9 +1,9 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/tests/core/UnitTest/Design/CVE/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     ignore:
       - dependency-name: "jest"
       - dependency-name: "cryptography"
@@ -12,7 +12,7 @@ updates:
       - dependency-name: "urllib3"
       - dependency-name: "jinja2"
       - dependency-name: "jwcrypto"
-      - dependency-name: "mysql*"
+      - dependency-name: "mysqlclient"
       - dependency-name: "requests"
       - dependency-name: "sqlparse"
       - dependency-name: "com.h2database:h2"
