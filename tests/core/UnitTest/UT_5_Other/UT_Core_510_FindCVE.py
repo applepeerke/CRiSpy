@@ -13,8 +13,8 @@ import unittest
 
 from src.core.BusinessLayer.CVEManager import CVEManager
 from src.core.BusinessLayer.Scanner import Scanner
+from src.core.Functions.Functions import format_os
 from src.core.Plugins.Versions.Versions_python import Versions_python
-from src.db.DataLayer.DBDriver.Functions import format_os
 from src.gl.BusinessLayer.SessionManager import Singleton as Session, normalize_dir
 
 Session().set_paths(unit_test=True)

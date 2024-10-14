@@ -15,6 +15,3 @@ Pattern for ma: Do NOT find_file MyAunt
 
 Pattern for doubleslash: Find find_file // my commment
 Pattern for doubleslash: Do NOT find_file / / my commment
-
-Pattern for kpn ma: Find ma-1honiehouder
-Pattern for kpn ma: Do NOT find_file ma-honiehouder

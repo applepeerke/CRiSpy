@@ -15,8 +15,8 @@ MNEMONIC = {
 
 class Result(object):
     """
-    result_value = Key-Value list (e.g. ["kpn", "KPN"]
-    text = Key-Value description (e.g. "KPN (kpn)")
+    result_value = Key-Value list (e.g. ["myComp", "MYCOMP"]
+    text = Key-Value description (e.g. "MYCOMP (mycomp)")
     """
 
     @property

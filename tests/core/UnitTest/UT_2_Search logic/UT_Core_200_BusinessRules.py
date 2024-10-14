@@ -9,16 +9,17 @@
 # ---------- --- ------------------------------------------------------------------------------------------------------
 # 2017-10-10 PHe First creation
 # ---------------------------------------------------------------------------------------------------------------------
+import os
 import unittest
 
 from src.core.BusinessLayer.BusinessRuleManager import BusinessRuleManager
 from src.core.DataLayer.BusinessRule import *
-from src.core.DataLayer.CoreModel import FD
-from src.db.DataLayer.Table import Table
+from src.core.DataLayer.CoreModel import FD, SEARCH_PATTERNS
 from src.gl.BusinessLayer.CsvManager import CsvManager
 from src.gl.BusinessLayer.SessionManager import Singleton as Session
 
-Session().set_paths(unit_test=True)
+session = Session()
+session.set_paths(unit_test=True)
 
 EMPTY = ""
 
@@ -49,10 +50,12 @@ class BusinessRulesTestCase(unittest.TestCase):
 
     def test_TC02_Search_patterns_must_exist(self):
         global search_patterns
-        csv_manager.file_name = Table.SearchPatterns + '.csv'
+        rows = csv_manager.get_rows(True, data_path=os.path.join(session.import_dir, f'{SEARCH_PATTERNS}.csv'))
+        self.assertGreater(len(rows), 1)
         # 5 = PatternName
-        search_patterns = csv_manager.get_column(unique=True, title=FD.SP_Pattern_name)
-        search_patterns = [p.lower() for p in search_patterns]
+        index = rows[0].index(FD.SP_Pattern_name)
+        self.assertGreater(index, -1)
+        search_patterns = [row[index].lower() for row in rows[1:]]
         self.assertGreater(len(search_patterns), 0)
 
     def test_TC03_Check_Business_Rules(self):
