@@ -6,3 +6,10 @@ updates:
       interval: "monthly"
     ignore:
       - dependency-name: "*"
+  - package-ecosystem: "maven"
+    directory: "/tests/core/UnitTest/Design/XML"
+    schedule:
+      interval: "monthly"
+    ignore:
+      - dependency-name: "h2database"
+      - versions: [ ">=1.4.0" ]
