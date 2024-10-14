@@ -61,7 +61,7 @@ drf-yasg==1.21.5
     # via
     #   -r requirements/requirements-base.txt
     #   de-core-django
-elastic-transport==8.4.0
+elastic-transport==8.15.1
     # via elasticsearch
 elasticsearch==8.6.1
     # via timeexecution
