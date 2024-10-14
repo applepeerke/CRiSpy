@@ -1,21 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/tests/core/UnitTest/Design/CVE/"
+    directory: "/tests"
     schedule:
       interval: "monthly"
     ignore:
-      - dependency-name: "jest"
-      - dependency-name: "cryptography"
-      - dependency-name: "django"
-      - dependency-name: "certifi"
-      - dependency-name: "urllib3"
-      - dependency-name: "jinja2"
-      - dependency-name: "jwcrypto"
-      - dependency-name: "mysqlclient"
-      - dependency-name: "requests"
-      - dependency-name: "sqlparse"
-      - dependency-name: "com.h2database:h2"
-      - dependency-name: "djangorestframework"
-      - dependency-name: "idna"
-      - dependency-name: "sentry-sdk"
+      - dependency-name: "*"
