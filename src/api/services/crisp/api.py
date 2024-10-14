@@ -1,28 +1,23 @@
-import os.path
-
 from fastapi import APIRouter, Response, HTTPException, Query
 from starlette import status
 
 from src.api.services.crisp.model import LogModel
-from src.api.services.functions import run
-from src.core.DataLayer.Enums import ETLAction
 from src.gl.BusinessLayer.ConfigManager import ConfigManager, get_desc
 from src.gl.BusinessLayer.Config_constants import *
 from src.gl.BusinessLayer.LogManager import Singleton as Log
 from src.gl.Enums import ApplicationTypeEnum, ExecTypeEnum
 
-crisp = APIRouter()
-crisp_import_marked_findings = APIRouter()
-crisp_custom_pattern_search = APIRouter()
-crisp_parameters = APIRouter()
-crisp_debug = APIRouter()
+crispy = APIRouter()
+crispy_custom_pattern_search = APIRouter()
+crispy_parameters = APIRouter()
+crispy_debug = APIRouter()
 
 log = Log()
 CM = ConfigManager()
 CM.start_config()
 
 
-@crisp_custom_pattern_search.get('/custom_search_pattern')
+@crispy_custom_pattern_search.get('/custom_search_pattern')
 async def custom_pattern_search(
         input_dir: str = Query(
             CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR)),  # query parameter
@@ -36,14 +31,14 @@ async def custom_pattern_search(
     kwargs = get_kwargs()
     kwargs['input_dir'] = input_dir
     kwargs['custom_search_pattern'] = custom_pattern
-    crispy = CRiSpy(**kwargs)
-    result = crispy.start()
+    crispy_pgm = CRiSpy(**kwargs)
+    result = crispy_pgm.start()
     if not result.OK:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=result.get_text())
     return Response(status_code=status.HTTP_200_OK)
 
 
-@crisp.get('/crisp', response_model=LogModel)
+@crispy.get('/crisp', response_model=LogModel)
 async def start_crisp(
         input_dir: str = Query(
             CM.get_config_item(
@@ -63,29 +58,14 @@ async def start_crisp(
     kwargs['custom_search_pattern'] = None
     kwargs['application_type'] = application_type or ApplicationTypeEnum.Any  # May be empty
     kwargs['exec_type'] = exec_type or ExecTypeEnum.Both  # May be empty
-    crispy = CRiSpy(**kwargs)
-    result = crispy.start()
+    crispy_pgm = CRiSpy(**kwargs)
+    result = crispy_pgm.start()
     if not result.OK:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=result.get_text())
     return {"log": log.get_log()}
 
 
-@crisp_import_marked_findings.post('/import_marked_findings', response_model=LogModel)
-async def import_marked_findings(
-        input_path: str):
-    if not input_path:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail='Path to a FindingStatus.csv is required.')
-    if not os.path.isfile(input_path):
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail='Path does not exist.')
-
-    from src.db.BusinessLayer.DB.CrispDbc import CrispDbc
-    crisp_db = CrispDbc(input_path=input_path)
-    return run(db_action=ETLAction.Import, crisp_db=crisp_db)
-
-
-@crisp_parameters.put('/parameters')
+@crispy_parameters.put('/parameters')
 async def set_parameters(
         company_name=CM.get_config_item(CF_COMPANY_NAME),
         output_dir=CM.get_config_item(CF_OUTPUT_DIR),
@@ -114,7 +94,7 @@ async def set_parameters(
     return Response(status_code=status.HTTP_200_OK)
 
 
-@crisp_debug.put('/debug')
+@crispy_debug.put('/debug')
 async def set_parameters_debug(
         debug_path=CM.get_config_item(CF_DEBUG_PATH),
         debug_pattern_name=CM.get_config_item(CF_DEBUG_PATTERN_NAME),

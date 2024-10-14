@@ -16,7 +16,7 @@ Example:
     Properties:
       FunctionName: !Sub "${ApplicationNamePrefix}-health-check"
       CodeUri: ai-lambdas-${project.version}.jar
-      Handler: com.kpn.mapps.ai.lambda.HealthCheckLambda::handleRequest
+      Handler: com.myComp.mapps.ai.lambda.HealthCheckLambda::handleRequest
       Events:
         AccessInfo:
           Type: Api
