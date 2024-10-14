@@ -34,7 +34,7 @@ de-core==1.0.1
     # via de-core-django
 de-core-django[sentry_sdk]==2.1.3
     # via -r requirements/requirements-base.txt
-deepdiff==5.8.1
+deepdiff==8.0.1
     # via service-base
 deprecated==1.2.13
     # via jwcrypto
