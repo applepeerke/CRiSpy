@@ -11,5 +11,5 @@ updates:
     schedule:
       interval: "monthly"
     ignore:
-      - dependency-name: "h2database"
+      - dependency-name: "com.h2database:h2"
       - versions: [ ">=1.4.0" ]
