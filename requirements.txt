@@ -1,5 +1,5 @@
 certifi==2023.7.22
-fastapi==0.115.1
+fastapi==0.115.2
 uvicorn~=0.31.0
 starlette~=0.39.2
 pydantic~=2.9.2
