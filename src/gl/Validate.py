@@ -18,7 +18,7 @@ import string
 
 import src.gl.UserInput as ui
 from root_functions import ROOT_DIR
-from src.core.Functions.Functions import slash, format_os
+from root_functions import slash, format_os
 from src.gl.Const import BLANK, APOSTROPHES, NONE, EMPTY, QUIT, CURRENT, CALCULATE
 from src.gl.Enums import ResultCode
 from src.gl.GeneralException import GeneralException

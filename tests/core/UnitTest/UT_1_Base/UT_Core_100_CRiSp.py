@@ -6,7 +6,7 @@ from src.core.BusinessLayer.FindingsManager import PAT_SCH, FILES_SCH, FILES_WIT
 from src.core.BusinessLayer.FindingsManager import Singleton as Findings_Manager
 from src.core.BusinessLayer.SearchPatternManager import SearchPatternManager as SearchPattern_Manager
 from src.core.DataLayer import FindingTemplate
-from src.core.Functions.Functions import get_root_dir
+from root_functions import get_root_dir
 from src.gl.BusinessLayer.CsvManager import CsvManager as Data_Manager
 from src.gl.BusinessLayer.LogManager import Singleton as Log
 from src.gl.BusinessLayer.SessionManager import Singleton as Session

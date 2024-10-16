@@ -12,7 +12,7 @@
 import os
 
 from src.core.DataLayer.SearchPattern import SearchPattern
-from src.core.Functions.Functions import slash
+from root_functions import slash
 from src.core.Plugins.Python.Frameworks.FrameworkBase import FrameworkBase, HEADER_INPUT
 from src.gl.Const import EMPTY
 from src.gl.Enums import Output

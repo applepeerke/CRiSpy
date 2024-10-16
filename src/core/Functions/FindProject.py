@@ -17,7 +17,7 @@ from root_functions import ROOT_DIR
 from src.gl.Const import EMPTY
 from src.gl.Enums import *
 from src.gl.Functions import path_leaf, get_word_rate, sanitize_text_to_alphanum_and_underscore
-from src.core.Functions.Functions import slash
+from root_functions import slash
 from src.gl.GeneralException import GeneralException
 
 PGM = 'FindProject'

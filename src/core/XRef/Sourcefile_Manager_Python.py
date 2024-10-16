@@ -13,7 +13,7 @@ import os
 
 from src.core.DataLayer.CodeBase.Import import Import
 from src.core.DataLayer.Enums import ClassSourceUsage
-from src.core.Functions.Functions import slash
+from root_functions import slash
 from src.core.XRef.Sourcefile_Manager_Base import *
 from src.gl.Const import BLANK, EMPTY
 from src.gl.Functions import path_leaf, loop_increment

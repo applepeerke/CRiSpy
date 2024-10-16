@@ -21,7 +21,7 @@ from src.gl.Enums import MessageSeverity
 from src.gl.Functions import find_file, path_leaf
 from src.gl.Message import Message
 from src.gl.BusinessLayer.SessionManager import Singleton as Session
-from src.core.Functions.Functions import slash
+from root_functions import slash
 
 PGM = 'PluginManager_JS'
 

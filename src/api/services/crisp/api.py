@@ -1,23 +1,35 @@
+import os
+
 from fastapi import APIRouter, Response, HTTPException, Query
 from starlette import status
 
-from src.api.services.crisp.model import LogModel
+from src.api.services.crisp.model import LineModel
+from src.api.services.functions import get_latest_result_folder, get_txt_as_lines, get_filename_from_prefix
+from src.core.BusinessLayer.ExternalLinksManager import DATAFLOW
+from src.core.DataLayer.FindingTemplate import ENDPOINTS, MODEL_FIELD_VALIDATIONS
+from src.core.Functions.Functions import get_csv_as_html, get_csv_as_txt
 from src.gl.BusinessLayer.ConfigManager import ConfigManager, get_desc
 from src.gl.BusinessLayer.Config_constants import *
 from src.gl.BusinessLayer.LogManager import Singleton as Log
+from src.gl.Const import FINDINGS, CSV_EXT, EMPTY
 from src.gl.Enums import ApplicationTypeEnum, ExecTypeEnum
 
-crispy = APIRouter()
-crispy_custom_pattern_search = APIRouter()
-crispy_parameters = APIRouter()
-crispy_debug = APIRouter()
+crisp = APIRouter()
+crisp_custom_pattern_search = APIRouter()
+
+crisp_findings = APIRouter()
+crisp_endpoints = APIRouter()
+crisp_input_validation = APIRouter()
+crisp_log = APIRouter()
+
+crisp_parameters = APIRouter()
 
 log = Log()
 CM = ConfigManager()
 CM.start_config()
 
 
-@crispy_custom_pattern_search.get('/custom_search_pattern')
+@crisp_custom_pattern_search.get('/custom_search_pattern')
 async def custom_pattern_search(
         input_dir: str = Query(
             CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR)),  # query parameter
@@ -38,7 +50,7 @@ async def custom_pattern_search(
     return Response(status_code=status.HTTP_200_OK)
 
 
-@crispy.get('/crisp', response_model=LogModel)
+@crisp.get('/crisp', response_model=LineModel)
 async def start_crisp(
         input_dir: str = Query(
             CM.get_config_item(
@@ -62,10 +74,72 @@ async def start_crisp(
     result = crispy_pgm.start()
     if not result.OK:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=result.get_text())
-    return {"log": log.get_log()}
+    return {"lines": log.get_log()}
 
 
-@crispy_parameters.put('/parameters')
+@crisp_log.get('/log', response_model=LineModel)
+async def get_log(
+        input_dir: str = Query(CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR))):
+    most_recent_dir_name = get_latest_result_folder(input_dir)
+    return {"lines": get_txt_as_lines(os.path.join(most_recent_dir_name, 'Log.txt'))}
+
+
+@crisp_findings.get('/findings')
+async def get_findings(
+        input_dir: str = Query(CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR))):
+    return get_html_response_from_csv(input_dir, f'{FINDINGS}.csv', FINDINGS)
+
+
+@crisp_endpoints.get('/endpoints')
+async def get_endpoints(
+        input_dir: str = Query(CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR))):
+    most_recent_dir_name = get_latest_result_folder(input_dir)
+    if not most_recent_dir_name:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"No valid CRiSp output subdirectory has been found for the specified input folder.")
+    file_name = get_filename_from_prefix(most_recent_dir_name, ENDPOINTS, DATAFLOW)
+    if not file_name:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"No valid {ENDPOINTS} file was found in subfolder {DATAFLOW} of the CRiSp output folder.")
+    return get_html_response_from_csv(input_dir, file_name, DATAFLOW)
+
+
+@crisp_input_validation.get('/input_validation')
+async def get_input_validation(
+        input_dir: str = Query(CM.get_config_item(CF_INPUT_DIR), description=get_desc(CF_INPUT_DIR))):
+    return get_html_response_from_csv(input_dir, f'{MODEL_FIELD_VALIDATIONS}{CSV_EXT}', DATAFLOW)
+
+
+def get_json_response_from_csv(input_dir, filename, subdir=None) -> dict:
+    if not input_dir or not filename:
+        return {}
+    path = _get_file_path(input_dir, filename, subdir)
+    return {"lines": get_csv_as_txt(path)}
+
+
+def get_html_response_from_csv(input_dir, filename, subdir=None) -> str:
+    if not input_dir or not filename:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"No input directory or no filename has been specified.")
+    path = _get_file_path(input_dir, filename, subdir)
+    return get_csv_as_html(path)
+
+
+def _get_file_path(input_dir, filename, subdir=None) -> str:
+    most_recent_dir_name = get_latest_result_folder(input_dir)
+    if not most_recent_dir_name:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"No CRiSp results are found for the specified input folder. Has CRiSp run?")
+    path = os.path.join(most_recent_dir_name, filename) if not subdir \
+        else os.path.join(most_recent_dir_name, subdir, filename)
+    return path if os.path.isfile(path) else EMPTY
+
+
+@crisp_parameters.put('/parameters')
 async def set_parameters(
         company_name=CM.get_config_item(CF_COMPANY_NAME),
         output_dir=CM.get_config_item(CF_OUTPUT_DIR),
@@ -90,17 +164,6 @@ async def set_parameters(
     CM.set_config_item(CF_OUTPUT_TYPE, output_type)
     CM.set_config_item(CF_TIME_EXEC_LOG_THRESHOLD_MS, exec_time_threshold_ms)
     CM.set_config_item(CF_TIME_EXEC_MAX_S, exec_time_max_s)
-    CM.write_config()
-    return Response(status_code=status.HTTP_200_OK)
-
-
-@crispy_debug.put('/debug')
-async def set_parameters_debug(
-        debug_path=CM.get_config_item(CF_DEBUG_PATH),
-        debug_pattern_name=CM.get_config_item(CF_DEBUG_PATTERN_NAME),
-):
-    CM.set_config_item(CF_DEBUG_PATH, debug_path)
-    CM.set_config_item(CF_DEBUG_PATTERN_NAME, debug_pattern_name)
     CM.write_config()
     return Response(status_code=status.HTTP_200_OK)
 

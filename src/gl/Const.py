@@ -76,3 +76,5 @@ PYTHON_BUILT_INS = [
     "map", "max", "memoryview", "min", "next", "object", "oct", "open", "ord", "pow", "print", "property",
     "range", "repr", "reversed", "round", "set", "setattr", "slice", "sorted", "staticmethod", "str",
     "sum", "super", "tuple", "type", "vars", "zip"]
+
+SPECIAL_CHARS = '!@#$%&*()-,.;: ''"|\\?/[]'

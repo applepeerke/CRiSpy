@@ -9,11 +9,15 @@
 # ---------- --- ------------------------------------------------------------------------------------------------------
 # 2018-04-03 PHe First creation
 # ---------------------------------------------------------------------------------------------------------------------
-import base64
 import os
 import platform
 
-from root_functions import SRC_DIR, ROOT_DIR
+from src.gl.BusinessLayer.CsvManager import CsvManager
+from src.gl.Const import SPECIAL_CHARS
+from src.gl.Functions import sanitize_text_to_alphanum_and_underscore
+from src.utils.csv_to_html import CsvToHtml
+
+csv = CsvManager()
 
 
 def find_company_name(basedir, companies):
@@ -32,17 +36,6 @@ def find_company_name(basedir, companies):
     return found_company
 
 
-def get_icon():
-    from src.gl.BusinessLayer.SessionManager import Singleton as Session
-    icon = f'{Session().images_dir}Logo.png'
-    icon = icon if os.path.isfile(icon) else None
-    if not icon:
-        return None
-    with open(icon, 'rb') as f:
-        result = base64.b64encode(f.read())
-    return result
-
-
 def strip_line(line):
     line = line.rstrip('\n')
     line = line.rstrip('\r')
@@ -59,15 +52,18 @@ def format_os(path_part):
     return path_part
 
 
-def slash():
-    return format_os('/')
+def get_csv_as_txt(path, sanitize=True) -> list:
+    if not os.path.isfile(path):
+        return []
+    rows = csv.get_rows(include_header_row=True, data_path=path)
+    lines = [', '.join(row) for row in rows]
+    return lines if not sanitize else \
+        [sanitize_text_to_alphanum_and_underscore(line, special_chars=SPECIAL_CHARS) for line in lines]
 
 
-def get_src_root_dir() -> str:
-    """ Should be the same level as src folder (so not in "src") """
-    return f'{SRC_DIR}{slash()}'
-
-
-def get_root_dir() -> str:
-    """ Should be the same level as CRiSp folder """
-    return ROOT_DIR
+def get_csv_as_html(path, sanitize=True) -> str:
+    if not os.path.isfile(path):
+        return '<html><body>File was not found.</body></html>'
+    rows = csv.get_rows(include_header_row=True, data_path=path)
+    csv2html = CsvToHtml()
+    return csv2html.start(rows, sanitize=sanitize)

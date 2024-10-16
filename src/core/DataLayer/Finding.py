@@ -11,7 +11,7 @@
 import os
 
 from src.core.DataLayer.SearchPattern import SearchPattern
-from src.core.Functions.Functions import slash
+from root_functions import slash
 from src.gl.Const import EMPTY
 from src.gl.Enums import MessageSeverity
 from src.gl.GeneralException import GeneralException
