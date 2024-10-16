@@ -17,17 +17,10 @@ from src.core.Plugins.Enums import ContainerType
 from src.core.Plugins.Functions import completion_message_of_field_analysis
 from src.core.Plugins.Python.Frameworks.Django.DjangoParser import DjangoParser
 from src.core.Plugins.SanitizerManagerBase import SanitizerManagerBase
-from src.db.DataLayer.Model.Model import Model
-from src.db.DataLayer.Table import Table
 from src.gl.BusinessLayer.TimeManager import time_exec
 from src.gl.Const import EMPTY
 from src.gl.Enums import Color, MessageSeverity
 from src.gl.Message import Message
-
-model = Model()
-
-class_dict = model.get_att_order_dict(Table.XRef_Classes, zero_based=False)
-inp_dir = EMPTY
 
 
 class SanitizerManagerPython(SanitizerManagerBase):

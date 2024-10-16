@@ -23,7 +23,7 @@ app.include_router(crisp_custom_pattern_search, tags=['CRiSpy'])
 app.include_router(crisp_findings, tags=['CRiSpy'], default_response_class=HTMLResponse)
 app.include_router(crisp_endpoints, tags=['CRiSpy'], default_response_class=HTMLResponse)
 app.include_router(crisp_input_validation, tags=['CRiSpy'], default_response_class=HTMLResponse)
-app.include_router(crisp_log, tags=['CRiSpy'], default_response_class=HTMLResponse)
+app.include_router(crisp_log, tags=['CRiSpy'])
 
 app.include_router(crisp_parameters, tags=['Parameters'])
 

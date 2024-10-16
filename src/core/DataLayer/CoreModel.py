@@ -48,6 +48,7 @@ class FD(object):
     FI_Index = 'Index'
     FI_File_name_ext = 'File_name_ext'
 
+    # Reports
     EP_Path = 'Path'
     EP_Url = 'Url'
     EP_Method = 'Method'
@@ -55,6 +56,19 @@ class FD(object):
     EP_Sanitizer = 'Sanitizer'
     EP_Vulnerable_attributes = 'Vulnerable attributes'
     EP_Messages = 'Messages'
+
+    CF_Dir_name = 'DirName'
+    CF_File_name = 'FileName'
+    CF_Type = 'Type'
+    CF_Name = 'Name'
+    CF_Items = 'Items'
+    CF_Line_no = 'LineNo'
+    CF_Level = 'Level'
+    CF_Key = 'Key'
+    CF_Value = 'Value'
+    CF_Endpoint_uri = 'EndpointUri'
+    CF_Http_method = 'HttpMethod'
+    CF_Operation = 'Operation'
 
 
 class CoreModel(object):

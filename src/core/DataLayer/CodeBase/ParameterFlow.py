@@ -13,8 +13,6 @@ from src.core.DataLayer.Enums import FrameworkName
 from src.core.DataLayer.Framework import DB_METHODS
 from src.core.Plugins.Python.DataFlow.Model import MethodSignature, DataFlowPython
 from src.core.Plugins.Const import OUTPUT, TYPE_CLASS, PARAMETER, TYPE_METHOD
-from src.db.BusinessLayer.XRef.XRef_IO import XRef_IO
-from src.db.BusinessLayer.XRef.XRef_MethodCall_manager import XRef_MethodCall_manager
 from src.gl.Const import UNKNOWN
 
 
@@ -31,6 +29,8 @@ class ParameterFlow(object):
         self._framework = framework if framework in DB_METHODS else FrameworkName.Unknown
 
         if session and session.db:
+            from src.db.BusinessLayer.XRef.XRef_IO import XRef_IO
+            from src.db.BusinessLayer.XRef.XRef_MethodCall_manager import XRef_MethodCall_manager
             self._has_db = True
             self._XR_MC = XRef_MethodCall_manager(session.db)
             self._XR_IO = XRef_IO(session.db)

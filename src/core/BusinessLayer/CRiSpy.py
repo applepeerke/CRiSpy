@@ -851,11 +851,10 @@ class CRiSpy(object):
 
     def _plugins(self):
         # Language/framework dependent plug-ins
-        if self._has_db:
-            from src.core.BusinessLayer.PluginManager import PluginManager
-            plugin_manager = PluginManager(
-                self._exec_type, LA_manager, FW_manager.frameworks, self._scanner, cli_mode=self._cli_mode)
-            plugin_manager.run()
+        from src.core.BusinessLayer.PluginManager import PluginManager
+        plugin_manager = PluginManager(
+            self._exec_type, LA_manager, FW_manager.frameworks, self._scanner, cli_mode=self._cli_mode)
+        plugin_manager.run()
 
     def _write_scan_results(self):
         """

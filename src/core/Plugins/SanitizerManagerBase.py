@@ -14,14 +14,8 @@ from src.core.DataLayer.CodeBase.Field import Field
 from src.core.DataLayer.CodeBase.Sanitizer import Sanitizer
 from src.core.DataLayer.Enums import SanitizerType
 from src.core.Plugins.Const import SANITIZED_AT_FIELD_LEVEL, SANITIZED_BY_SANE_TYPE
-from src.db.BusinessLayer.XRef.XRef_Class_manager import XRef_Class_manager
-from src.db.DataLayer.Model.Model import Model, FD
-from src.db.DataLayer.Table import Table
+
 from src.gl.BusinessLayer.SessionManager import Singleton as Session
-
-model = Model()
-
-class_dict = model.get_att_order_dict(Table.XRef_Classes, zero_based=False)
 
 
 class SanitizerManagerBase(object):
@@ -181,9 +175,19 @@ class SanitizerManagerBase(object):
                 }
 
     def get_enum_definitions(self, input_dir) -> [Element]:
-        XCM = XRef_Class_manager(self._session.db) if self._session.db else None
+        if not self._session.db:
+            return []
+
+        from src.db.BusinessLayer.XRef.XRef_Class_manager import XRef_Class_manager
+        XCM = XRef_Class_manager(self._session.db)
         if not XCM:
             return []
+
+        from src.db.DataLayer.Model.Model import Model, FD
+        from src.db.DataLayer.Table import Table
+        model = Model()
+
+        class_dict = model.get_att_order_dict(Table.XRef_Classes, zero_based=False)
         elements = [Element(input_dir=input_dir,
                             path=f'{input_dir}{row[class_dict[FD.MO_Namespace]]}{row[class_dict[FD.MO_Name]]}',
                             line_no=f'{row[class_dict[FD.CL_LineNo]]}',

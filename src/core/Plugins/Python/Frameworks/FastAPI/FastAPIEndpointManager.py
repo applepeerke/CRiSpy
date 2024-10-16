@@ -6,13 +6,8 @@ from src.core.Plugins.Python.Endpoints.EndpointManager import EndpointManager, A
 from src.core.Plugins.Python.Frameworks.FastAPI.FastAPIManager import FastAPIManager
 from src.core.Plugins.Python.Frameworks.Pydantic.PydanticFieldManager import PydanticFieldManager
 from src.core.Plugins.Python.Frameworks.Pydantic.PydanticModelManager import PydanticModelManager
-from src.db.DataLayer.Model.Model import Model
-from src.db.DataLayer.Table import Table
 from src.gl.Const import EMPTY
 from src.gl.Functions import get_names_from_line
-
-model = Model()
-class_dict = model.get_att_order_dict(Table.XRef_Classes, zero_based=False)
 
 PydanticM = PydanticFieldManager()
 FastAPIM = FastAPIManager()
