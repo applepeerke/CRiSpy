@@ -38,7 +38,7 @@ class CoreReport(object):
 
     @staticmethod
     def get_header(report_name) -> list:
-        return [att.name for att in CoreReport.Defs[report_name].values() if report_name not in CoreReport.Defs]
+        return [name for name in CoreReport.Defs[report_name].values() if report_name in CoreReport.Defs]
 
     @staticmethod
     def _map_report_names_to_atts_dict(report_name) -> dict:
@@ -48,14 +48,14 @@ class CoreReport(object):
     def map_header_to_0_based_colno_dict(self, report_name, header: list) -> dict:
         """ Map row header column names to column numbers. """
         d = {}
-        def_d = self._map_report_names_to_atts_dict(report_name)
+        header_def = self.get_header(report_name)
         for i in range(len(header)):
             name = header[i]
             if not name:
                 raise GeneralException(
                     f"{PGM}: Column heading {i + 1} is empty in rows for report '{report_name}'")
             # header column name MUST exist in report definition.
-            if name not in def_d:
+            if name not in header_def:
                 raise GeneralException(
                     f"{PGM}: Column heading '{name}' is not defined in '{report_name}'")
             else:
