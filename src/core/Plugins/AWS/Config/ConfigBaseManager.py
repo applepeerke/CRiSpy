@@ -12,6 +12,8 @@
 from src.core.DataLayer.CodeBase.Element import Element
 from src.core.DataLayer.CodeBase.Endpoint import Endpoint
 from src.core.DataLayer.CodeBase.Field import Field
+from src.core.DataLayer.CoreModel import FD
+from src.core.DataLayer.CoreReport import CoreReport
 from src.core.DataLayer.Enums import SecurityPattern, ContextType, ConfigFileType
 from src.core.DataLayer.Finding import Finding
 from src.core.DataLayer.SearchPattern import SearchPattern
@@ -19,8 +21,6 @@ from src.core.Plugins.AWS.AWS_Field import AWS_Field
 from src.core.Plugins.AWS.Constants import RESOURCES, RESOURCE, ACTION, EFFECT, START_OF_ENDPOINTS, START_OF_MODELS, \
     ALLOW, DENY, START_OF_ENDPOINT, START_OF_MODEL
 from src.core.Plugins.AWS.Enums import SchemaItem, EndpointItem
-from src.db.DataLayer.Report import Report
-from src.db.DataLayer.Model.Model import FD
 from src.gl.Const import EMPTY, APOSTROPHES
 from src.gl.Enums import Color, Language, MessageSeverity
 from src.gl.Functions import path_leaf_only, remove_color_code
@@ -205,7 +205,7 @@ class ConfigBaseManager(object):
             return {}
 
         try:
-            d = Report(Report.ConfigFile).map_header_to_0_based_colno_dict(Report.ConfigFile, self._rows[0])
+            d = CoreReport(CoreReport.ConfigFile).map_header_to_0_based_colno_dict(CoreReport.ConfigFile, self._rows[0])
         except GeneralException:
             raise
 
@@ -340,7 +340,7 @@ class ConfigBaseManager(object):
             return []
 
         try:
-            d = Report(Report.ConfigFile).map_header_to_0_based_colno_dict(Report.ConfigFile, self._rows[0])
+            d = CoreReport(CoreReport.ConfigFile).map_header_to_0_based_colno_dict(CoreReport.ConfigFile, self._rows[0])
         except GeneralException:
             raise
 

@@ -23,7 +23,6 @@ from src.core.Plugins.EndpointManagerBase import EndpointManagerBase
 from src.core.Plugins.Python.DataFlow.DataFlowParser import DataFlowParser
 from src.core.Plugins.Python.Endpoints.SanitizerManagerPython import SanitizerManagerPython
 from src.core.Plugins.Python.Frameworks.Django.DjangoParser import DjangoParser
-from src.db.BusinessLayer.XRef.XRef_Class_manager import XRef_Class_manager
 from src.gl.BusinessLayer.CsvManager import CsvManager
 from src.gl.BusinessLayer.LogManager import STRIPE
 from src.gl.Const import BLANK, EMPTY, CSV_EXT, ALL
@@ -74,6 +73,7 @@ class EndpointManager(EndpointManagerBase):
         self._col_names = FindingTemplate.template_headers[FindingTemplate.REST_FRAMEWORK_ENDPOINTS_DATA_FLOW]
         self._root_dir = f'{path_leaf_only(self._session.input_dir)}'
         if self._session.db:
+            from src.db.BusinessLayer.XRef.XRef_Class_manager import XRef_Class_manager
             self._CM = XRef_Class_manager(self._session.db)
 
         self._validator_field_names = []
