@@ -9,7 +9,7 @@
 # ---------- --- ------------------------------------------------------------------------------------------------------
 # 2019-08-01 PHe First creation
 # ---------------------------------------------------------------------------------------------------------------------
-from src.core.Functions.Functions import slash
+from root_functions import slash
 from src.core.Plugins.Const import TYPE_METHOD, TYPE_CLASS
 from src.gl.Const import EMPTY
 from src.gl.Functions import path_leaf

@@ -17,7 +17,7 @@ from typing import Optional
 from fastapi import HTTPException
 from starlette import status
 
-from src.core.Functions.Functions import get_src_root_dir
+from root_functions import get_src_root_dir
 from src.gl.BusinessLayer.Config_constants import *
 from src.gl.ConfigItem import ConfigItem
 from src.gl.Const import EMPTY, APP_NAME

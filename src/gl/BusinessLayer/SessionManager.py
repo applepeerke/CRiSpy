@@ -12,7 +12,7 @@
 
 import datetime
 
-from src.core.Functions.Functions import get_root_dir, get_src_root_dir
+from root_functions import get_root_dir, get_src_root_dir
 from src.gl.Const import MODULE_CORE, SRC, APP_NAME, RESULTS_DIR, BASE_OUTPUT_SUBDIR, TESTS
 from src.gl.Validate import *
 

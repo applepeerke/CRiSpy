@@ -140,7 +140,7 @@ class Singleton:
                     os.makedirs(session.log_dir)
                 dir_name = session.log_dir_name
                 # If dirname contains timestamp, filename can be simple.
-                self.log_file_name = 'Log.txt' if sum(1 for e in dir_name if e.isnumeric()) >= 14 \
+                self.log_file_name = 'Log.txt' if dir_name and sum(1 for e in dir_name if e.isnumeric()) >= 14 \
                     else f'Log_{session.log_dir_name}.txt'
                 self._log_path = f'{session.log_dir}{self.log_file_name}'
 

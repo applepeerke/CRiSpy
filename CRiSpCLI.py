@@ -15,7 +15,7 @@ import getopt
 import sys
 
 from src.core.BusinessLayer.CRiSpy import CRiSpy
-from src.core.Functions.Functions import get_root_dir
+from root_functions import get_root_dir
 from src.gl.Const import SEARCH_DATA_PATH
 from src.gl.Enums import Color, LogType, ApplicationTypeEnum
 from src.gl.Validate import *

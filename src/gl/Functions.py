@@ -8,7 +8,7 @@ import string
 import time
 
 from root_functions import ROOT_DIR
-from src.core.Functions.Functions import slash, format_os
+from root_functions import slash, format_os
 from src.gl.Const import EMPTY, MAX_LOOP_COUNT, NONE, APOSTROPHES, BLANK, DB_LIST_REPRESENTATION_SUBSTITUTE, APP_NAME, \
     LC, WORD_CHARS, NUM
 from src.gl.Enums import ApplicationTypeEnum

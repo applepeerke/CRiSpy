@@ -15,7 +15,7 @@ from src.core.BusinessLayer import Scanner as Scanner
 from src.core.BusinessLayer.SearchPatternManager import SearchPatternManager as SearchPattern_Manager
 from src.core.DataLayer.CoreModel import CoreModel
 from src.core.DataLayer.SearchPattern import SearchPattern
-from src.core.Functions.Functions import get_root_dir
+from root_functions import get_root_dir
 from src.gl.BusinessLayer.SessionManager import Singleton as Session
 from src.gl.Validate import *
 
